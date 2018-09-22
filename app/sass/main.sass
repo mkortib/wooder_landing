@@ -1,0 +1,907 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+// ::placeholder
+// 	color: #666
+
+ul
+	list-style-type: none
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		// border: #666 1px solid
+		// outline: none
+		// &:focus:required:invalid
+		// 	border-color: red
+		// &:required:valid
+		// 	border-color: green
+	// &.ishome
+	// 	.site-header
+	// 		min-height: 700px
+	// 		height: 100vh
+	// 		background-color: $dark
+	// 		color: #fff
+	// 		.top-line
+	// 			padding-top: 40px
+	// 			position: absolute
+	// 			width: 100%
+	// 			z-index: 1
+
+.h1, .h2, .h3, .h4, .h5, .h6
+	text-transform: uppercase
+	line-height: 1.4
+
+.text-center
+	text-align: center
+
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	z-index: 100
+	background-color: #000
+	.pulse
+		position: relative
+		left: 50%
+		top: 50vh
+		margin:
+			left: -40px
+			top: -40px
+		&::before, &::after
+			content: ''
+			border: 5px solid rgba($accent, .5)
+			width: 80px
+			height: 80px
+			border-radius: 500px
+			position: absolute
+		&::before
+			animation: pulse-outer .8s ease-in infinite
+		&::after
+			animation: pulse-inner .8s linear infinite
+
+
+@keyframes pulse-outer
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	50%
+		@include opacity(0)
+
+@keyframes pulse-inner
+	0%
+		@include opacity(0)
+		transform: scale(0)
+	50%
+		@include opacity(100)
+		transform: scale(1)
+
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 16px 45px
+	font-size: 13px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&::after
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 5%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+
+.main_header
+	// overflow-x: hidden
+	// overflow-y: hidden
+	position: relative
+	height: 100vh
+	min-height: 700px
+	// .header_container
+	// 	position: relative
+	// 	height: 100%
+	&::before, &::after
+		content: ''
+		position: absolute
+		height: 100%
+		background-position: center
+		background-size: cover
+		top: 0
+		bottom: 0
+		z-index: -1
+	&::before
+		left: 0
+		width: 55%
+		background-image: url(/img/bg_left.png)
+	&::after
+		width: 45%
+		min-height: 110%
+		right: 0
+		background-image: url(/img/bg_right.png)
+
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before
+	background-color: $accent
+
+.top_line
+	width: 100%
+	position: absolute
+	z-index: 5
+	color: #fff
+	.hide_menu_wrap, .logo, .header_nav, .info_icon, .change_lang
+		display: inline-block
+		position: relative
+		// .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before
+			// background-color: $accent
+		// .hamburger-inner:after, .hamburger-inner:before
+		// 	background-color: $accent
+	.hide_menu_wrap
+		top: 3px
+		left: 3%
+		p
+			position: absolute
+			text-transform: uppercase
+			font-weight: bold
+			font-size: 15px
+			display: inline-block
+			top: 15px
+			left: 70px
+
+// .logo, .header_nav
+	// display: inline-block
+
+.menu_center
+	margin-left: 25%
+	top: -20px
+
+.logo
+	left: 25%
+	top: -20px
+	font-weight: bold
+	font-size: 36px
+	letter-spacing: 8px
+	position: relative
+	text-transform: uppercase
+	a
+		color: #fff
+		&:hover
+			text-decoration: none
+	&::after
+		position: absolute
+		content: ''
+		width: 62px
+		height: 4px
+		background-color: $accent
+		top: 26px
+		left: 41px
+
+.header_nav
+	width: 30%
+	left: 28%
+	top: -25px
+	ul
+		li
+			list-style-type: none
+			display: inline-block
+			margin-right: 12%
+			a
+				text-transform: uppercase
+				font-size: 15px
+				color: #fff
+				font-weight: bold
+				transition: all .3s ease
+				&:hover
+					text-decoration: none
+					color: $accent
+			&.active
+				a
+					color: $accent
+
+.info_icon, .change_lang
+	left: 35%
+	top: -23px
+
+.info_icon
+	cursor: pointer
+	margin-right: 40px
+	border: 1px solid #fff
+	font-size: 15px
+	padding: 10px 9px
+	line-height: 0
+	border-radius: 50%
+	font-weight: 200
+
+.change_lang
+	cursor: pointer
+	font-size: 15px
+	text-transform: uppercase
+	font-weight: bold
+	.fas
+		margin-left: 5px
+		color: $accent
+		font-size: 13px
+
+
+.header_flex
+	padding-top: 14%
+.left_comp
+	position: relative
+	.number
+		margin-top: 50%
+		font-size: 52px
+		color: $accent
+		font-weight: bold
+		transform: rotate(90deg)
+		letter-spacing: 3px
+		position: relative
+		&::after
+			position: absolute
+			content: ''
+			width: 45px
+			height: 4px
+			background-color: $accent 
+			left: -65px
+			top: 40px
+
+	.dotted
+		position: relative
+		top: 0px
+		left: 80px
+		> div
+			border-radius: 50%
+			width: 7px
+			height: 7px
+			background-color: rgba($accent, .2)
+			margin-bottom: 30px
+		.first
+			background-color: $accent
+
+.center_comp
+	position: relative
+	margin-left: 15%
+	img
+		width: 15px
+		position: absolute
+		bottom: -60px
+		left: 0
+	.text_scroll
+		text-transform: uppercase
+		font-size: 14px
+		color: rgba(#fff, .2)
+		transform: rotate(90deg)
+		letter-spacing: 2px
+		font-weight: bold
+		position: absolute
+		bottom: -160px
+		left: -25px
+	span
+		position: absolute
+		bottom: -100px
+		left: 3px
+		.fas
+			color: #fff
+			font-size: 18px
+	h1
+		font-size: 90px
+		letter-spacing: 15px
+		color: $accent
+	a
+		display: inline-block
+		text-transform: uppercase
+		color: #fff
+		font-weight: bold
+		letter-spacing: 2px
+		font-size: 14px
+		// line-height: 18px
+		padding: 15px 80px 14px 60px
+		border: 2px solid #fff
+		margin-top: 15px
+		position: relative
+		transition: all .5s ease
+		&:hover
+			border-color: $accent
+			text-decoration: none
+			.fas
+				// color: $accent
+				right: 20px
+		.fas
+			transition: all .5s ease
+			position: absolute
+			font-size: 20px
+			top: 18px
+			right: 40px
+
+.header_right
+	margin-top: 65%
+	p
+		white-space: nowrap
+		transform: rotate(90deg)
+		font-size: 14px
+		text-transform: uppercase
+		color: rgba($accent, .2)
+		font-weight: bold
+		letter-spacing: 2px
+
+.share_icon
+	z-index: 10
+	display: inline-block
+	position: absolute
+	top: 102%
+	right: 3%
+	font-size: 20px
+	color: $accent
+	cursor: pointer
+
+.line_decor
+	&::after
+		position: absolute
+		content: ''
+		width: 50px
+		transform: rotate(90deg)
+		height: 4px
+		background-color: $accent
+		top: 110%
+		right: 15%
+
+.letter_right
+	// overflow-x: hidden
+	font-size: 300px
+	font-weight: bold
+	color: rgba($accent, .1)
+	position: absolute
+	top: 116px
+	right: 0
+	z-index: 25
+
+.letter_down
+	font-size: 300px
+	font-weight: bold
+	color: rgba($accent, .1)
+	position: absolute
+	bottom: -240px
+	left: 185px
+	z-index: 25
+
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before
+	height: 2px
+	width: 38px
+
+.mm-menu_theme-black .mm-navbar a, .mm-menu_theme-black .mm-navbar>*
+	color: $accent
+	text-transform: uppercase
+	font-weight: bold
+	&:hover
+		color: $accent
+
+.mm-navbar 
+	position: relative
+	height: auto
+	border: none
+	.mm-navbar__title
+		display: none 
+		cursor: pointer
+		transition: all .3s ease
+		padding: 0
+		font-size: 20px
+		color: $accent
+
+
+.mm-listitem:after
+	display: none
+
+html.mm-wrapper_opened
+	overflow-y: scroll
+
+.mm-panels > .mm-panel.mm-panel_has-navbar
+	right: -18px
+
+.mm-menu_theme-black .mm-listitem_selected>a:not(.mm-btn_next), .mm-menu_theme-black .mm-listitem_selected>span 
+	background-color: transparent
+	color: $accent
+
+.mm-panel:after, .mm-panel:before
+	height: 0
+
+.mm-panels>.mm-panel>.mm-listview:first-child, .mm-panels>.mm-panel>.mm-navbar+.mm-listview
+	margin-top: 30px
+
+.mm-listview
+	> li
+		> a
+			font-size: 30px
+			font-weight: bold
+			text-transform: uppercase
+			letter-spacing: 1px
+			position: relative
+			transition: all .25s ease
+			padding: 
+				left: 14%
+				right: 14%
+				bottom: 50px
+			&:hover
+				color: $accent
+				.fas
+					color: $accent
+			.fas
+				transition: all .25s ease
+				margin-right: 10px
+				font-size: 12px
+				color: #fff
+		&.active
+			&>a, .fas
+				color: $accent
+
+.s_main
+	padding: 10% 0
+	overflow: hidden
+
+.s_decor
+	padding-top: 5%
+
+.s_furniture
+	position: relative
+	&::after
+		position: absolute
+		content: 'furniture'
+		text-transform: uppercase
+		font-weight: bold
+		color: rgba(#d0d0d0, .3)
+		right: -23%
+		letter-spacing: 4px
+		font-size: 150px
+		top: 30%
+
+.s_decor, .s_about
+	position: relative
+	&::after
+		position: absolute
+		content: 'decor'
+		text-transform: uppercase
+		font-weight: bold
+		color: rgba(#d0d0d0, .3)
+		left: 0%
+		letter-spacing: 4px
+		font-size: 150px
+		top: 20%
+
+.furniture_wrap, .decor_wrap, .about_wrap
+	margin-top: 50px
+	padding-left: 195px
+	h2
+		position: relative
+		letter-spacing: 3px
+		font-weight: bold
+		font-size: 48px
+		&::after
+			content: ''
+			position: absolute
+			width: 130px
+			height: 1px
+			background-color: #000
+			top: 30px
+			left: -160px
+	p
+		font-size: 15px
+		position: relative
+		color: #464646
+		&::after
+			content: ''
+			position: absolute
+			width: 50px
+			height: 4px
+			background-color: $accent
+			top: 9px
+			left: -80px
+	span
+		position: relative
+		&::after
+			content: ''
+			position: absolute
+			width: 50px
+			height: 2px
+			background-color: $accent
+			bottom: -8px
+			left: 0	
+		.fas
+			color: $accent
+			font-size: 15px
+			margin-left: 12px
+			transition: all .5s ease
+		&:hover
+			a
+				text-decoration: none
+			.fas
+				margin-left: 30px
+
+		a
+			transition: all .5s ease
+			font-size: 14px
+			color: #000
+			letter-spacing: 2px
+			font-weight: bold
+			text-transform: uppercase
+	.num_sect
+		font-weight: bold
+		letter-spacing: 2px
+		position: relative
+		font-size: 36px
+		margin-top: 50px
+		margin-left: -150px
+		.accent_dot
+			color: $accent
+		span
+			&::after
+				display: none
+		&::after
+			content: ''
+			position: absolute
+			width: 50px
+			height: 4px
+			transform: rotate(90deg)
+			background-color: $accent
+			top: 140px
+			left: -2px
+
+.decor_wrap, .about_wrap
+	padding-right: 210px
+	padding-left: 0
+	text-align: right
+	position: relative
+	&::after
+		position: absolute
+		content: 'D'
+		font-weight: bold
+		color: rgba(#d0d0d0, .3)
+		left: -5%
+		letter-spacing: 4px
+		font-size: 180px
+		top: -60%
+		z-index: 22
+	h2
+		&::after
+			top: 30px
+			left: 360px
+	p
+		&::after
+			top: 9px
+			left: 360px
+	span
+		.fas
+			margin-left: 0
+			margin-right: 10px
+		&:hover
+			a
+				text-decoration: none
+			.fas
+				margin-left: 30px
+
+		a
+			margin-right: 10px
+	.num_sect
+		font-weight: bold
+		letter-spacing: 2px
+		position: relative
+		font-size: 36px
+		margin-top: 50px
+		margin-left: 430px
+		.accent_dot
+			color: $accent
+		span
+			&::after
+				display: none
+		&::after
+			content: ''
+			position: absolute
+			width: 50px
+			height: 4px
+			transform: rotate(90deg)
+			background-color: $accent
+			top: 140px
+			left: -2px
+
+
+
+.img_wrap
+	img
+		max-width: 100%
+		width: 90%
+		box-shadow: 0px 1px 10px 3px lighten(#888, 30%)
+
+.s_quality
+	text-align: center
+	padding: 5% 0
+	.sect_header
+		position: relative
+		text-align: center
+		h2
+			font-size: 48px
+			text-transform: uppercase
+			padding-bottom: 20px
+			&::after
+				display: inline-block
+				content: ''
+				position: absolute
+				width: 50px
+				background-color: $accent
+				top: 85px
+				left: 48%
+				height: 4px
+		p
+			font-size: 15px
+			color: #636262
+.items_wrap
+	text-align: center
+	margin-top: 50px
+
+.item
+	text-align: center
+	display: inline-block
+	p
+		font-size: 16px
+		margin-top: 40px
+		position: relative
+		&::after
+			position: absolute
+			content: ''
+			width: 30px
+			height: 1px
+			left: 110px
+			top: -15px
+			background-color: $accent
+
+	.circle
+		cursor: pointer
+		position: relative
+		padding: 12px
+		border: 1px solid rgba(#999, .3)
+		border-radius: 50%
+		&:hover
+			.play_icon
+				transform: scale(1.2)
+				.fas
+					transform: scale(1.2)
+			.circle_img
+				&::after
+					background-color: rgba(#000, .3)
+		.circle_img
+			border-radius: 50%
+			background-size: cover
+			background-position: center
+			width: 220px
+			height: 220px
+			position: relative
+			&::after
+				transition: all .5s ease
+				position: absolute
+				content: ''
+				width: 100%
+				height: 100%
+				background-color: rgba(#000, .5)
+				top: 0
+				left: 0
+				bottom: 0
+				right: 0
+				border-radius: 50%
+
+	.play_icon
+		transition: all .5s ease
+		width: 60px
+		height: 60px
+		border-radius: 50%
+		font-size: 25px
+		background-color: rgba($accent, .8)
+		color: #fff
+		position: absolute
+		top: 90px
+		left: 90px
+		.fas
+			position: absolute
+			top: 30%
+			left: 34%
+			transition: all .5s ease
+
+.player_bg_video
+	z-index: 200
+	display: none
+	position: relative
+	&::before
+		// display: none
+		position: absolute
+		content: ''
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		background-color: rgba(#000, .8)
+		z-index: 9999
+
+.s_video
+	// display: none
+	padding: 7% 10%
+	background-size: cover
+	background-position: center
+	position: relative
+	&::after
+		position: absolute
+		content: ''
+		width: 100%
+		height: 100%
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background-color: rgba(#000, .9)
+		z-index: 2
+	.play_bg
+		position: absolute
+		font-size: 650px
+		top: 7%
+		right: 5%
+		color: rgba(#666, .1)
+		z-index: 5
+
+// .video_play
+// 	position: absolute
+// 	z-index: 999
+
+
+
+.video_content
+	padding: 12% 0
+	position: relative
+	z-index: 3
+	color: #fff
+	border: 1px solid $accent
+	h2, a
+		text-transform: uppercase
+	h2
+		position: relative
+		line-height: 55px
+		font-size: 44px
+		color: $accent
+		margin-bottom: 25px
+		&::after
+			content: ''
+			position: absolute
+			width: 100px
+			height: 1px
+			background-color: #fff
+			left: -130px
+			top: 25px
+
+	p
+		width: 80%
+		font-size: 15px
+		margin-bottom: 25px
+		position: relative
+		&::after
+			content: ''
+			position: absolute
+			width: 40px
+			height: 3px
+			background-color: $accent
+			left: -68px
+			top: 10px
+	.ico_p
+		cursor: pointer
+		text-transform: uppercase
+		display: inline-block
+		margin-top: 10px
+		font-size: 14px
+		font-weight: bold
+		color: #fff
+		border: 1px solid #fff
+		padding: 10px 30px 11px
+		letter-spacing: 2px
+		vertical-align: middle
+		transition: all .5s ease
+		.far
+			margin-right: 5px
+			font-size: 20px
+			vertical-align: middle
+			transition: all .5s ease
+		&:hover
+			text-decoration: none
+			.far
+				transform: rotate(360deg)
+
+			border-color: $accent
+
+.s_about
+	&::after
+		content: 'about'
+		font-size: 150px
+
+.about_wrap
+	padding-right: 210px
+	padding-left: 0
+	text-align: left
+	position: relative
+	&::after
+		font-size: 300px
+		top: -230%
+		left: 40%
+		content: 'A'
+	h2
+		&::after
+			z-index: 5
+			top: 30px
+			left: -160px
+	p
+		&::after
+			top: 9px
+			left: -80px
+			z-index: 5
+
+.main_footer
+	background-size: cover
+	background-position: center
+	padding: 10px 0
+	color: #fff
+	text-align: center
+	.logo
+		top: 0
+		left: 0
+		a
+			color: #fff
+			&:hover
+				text-decoration: none
+		&::after
+			left: 113px
+	.pow, .copy
+		letter-spacing: 1px
+		text-transform: uppercase
+		font-weight: bold
+		margin-top: 17px
+		color: rgba(#fff, .2)
+	.autor
+		color: rgba(#fff, .4)
+
+
+
+@import "media" // Always at the end

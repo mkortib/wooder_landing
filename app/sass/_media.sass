@@ -1,0 +1,676 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+
+	.main_footer
+		.logo
+			top: 0
+			left: 0
+			&::after
+				left: 85px
+
+	.s_about
+		&::after
+			content: 'about'
+			font-size: 150px
+
+	.about_wrap
+		padding-right: 0
+		padding-left: 80px
+		text-align: left
+		position: relative
+		&::after
+			font-size: 300px
+			top: -230%
+			left: 40%
+			content: 'A'
+		h2
+			&::after
+				z-index: 5
+				top: 30px
+				left: -160px
+		p
+			&::after
+				top: 9px
+				left: -80px
+				z-index: 5
+
+		.s_video
+			.play_bg
+				font-size: 630px
+
+	.s_decor
+		position: relative
+		&::after
+			position: absolute
+			content: 'decor'
+			text-transform: uppercase
+			font-weight: bold
+			color: rgba(#d0d0d0, .3)
+			left: 0%
+			letter-spacing: 4px
+			font-size: 120px
+			top: 20%
+
+	.furniture_wrap
+		.num_sect
+			&::after
+				top: 100px
+
+	.decor_wrap
+		padding-right: 210px
+		padding-left: 0
+		text-align: right
+		position: relative
+		&::after
+			position: absolute
+			content: 'D'
+			font-weight: bold
+			color: rgba(#d0d0d0, .3)
+			left: -5%
+			letter-spacing: 4px
+			font-size: 130px
+			top: -40%
+			z-index: 22
+		h2
+			&::after
+				top: 30px
+				left: 270px
+		p
+			font-size: 14px
+			&::after
+				top: 9px
+				left: 270px
+		span
+			.fas
+				margin-left: 0
+				margin-right: 10px
+			&:hover
+				a
+					text-decoration: none
+				.fas
+					margin-left: 30px
+
+			a
+				margin-right: 10px
+		.num_sect
+			font-weight: bold
+			letter-spacing: 2px
+			position: relative
+			font-size: 36px
+			margin-top: 30px
+			margin-left: 330px
+			.accent_dot
+				color: $accent
+			span
+				&::after
+					display: none
+			&::after
+				content: ''
+				position: absolute
+				width: 50px
+				height: 4px
+				transform: rotate(90deg)
+				background-color: $accent
+				top: 100px
+				left: -2px
+
+
+	.s_furniture
+		padding-top: 15%
+		&::after
+			font-size: 110px
+	.furniture_wrap
+		padding-left: 150px
+
+	.img_wrap img
+		width: 100%
+
+	.furniture_wrap h2::after
+		left: -160px
+	.furniture_wrap p::after
+		left: -80px
+
+	.header_flex
+		padding-top: 20%
+	.left_comp .dotted
+		left: 60px
+	.header_nav 
+		width: 40%
+	.info_icon, .change_lang
+		left: 22%
+		top: -23px
+	.info_icon
+		cursor: pointer
+		margin-right: 20px
+	.logo
+		left: 20%
+	.header_nav
+		left: 22%
+
+	
+// ≥992px
++media-breakpoint-down(md)
+	.main_footer
+		.logo
+			top: 0
+			left: 0
+			&::after
+				left: 43px
+		.pow, .copy
+			letter-spacing: 1px
+			text-transform: uppercase
+			font-weight: bold
+			margin-top: 17px
+			color: rgba(#fff, .2)
+	
+
+	.s_about
+		&::after
+			content: 'about'
+			font-size: 100px
+
+	.about_wrap
+		padding-right: 0
+		padding-left: 0px
+		text-align: left
+		margin-top: 10px
+		position: relative
+		&::after
+			font-size: 300px
+			top: -230%
+			left: 40%
+			content: 'A'
+		h2
+			&::after
+				display: none
+		p
+			&::after
+				display: none
+
+	.s_video
+		.play_bg
+			font-size: 600px
+			top: 2%
+
+	.video_content
+		h2::after
+			width: 60px
+			left: -80px
+		p::after
+			width: 20px
+			left: -40px
+
+	.item:last-child
+		margin-top: 40px
+	.s_decor
+		position: relative
+		&::after
+			position: absolute
+			content: 'decor'
+			text-transform: uppercase
+			font-weight: bold
+			color: rgba(#d0d0d0, .3)
+			left: 0%
+			letter-spacing: 4px
+			font-size: 90px
+			top: 13%
+
+	.decor_wrap
+		margin-top: 5px
+		padding-right: 90px
+		padding-left: 0
+		text-align: right
+		position: relative
+		&::after
+			position: absolute
+			content: 'D'
+			font-weight: bold
+			color: rgba(#d0d0d0, .3)
+			left: -5%
+			letter-spacing: 4px
+			font-size: 90px
+			top: -25%
+			z-index: 22
+		h2
+			&::after
+				width: 50px
+		p
+			font-size: 14px
+			&::after
+				width: 20px
+		span
+			.fas
+				margin-left: 0
+				margin-right: 10px
+			&:hover
+				a
+					text-decoration: none
+				.fas
+					margin-left: 30px
+
+			a
+				margin-right: 10px
+		.num_sect
+			font-weight: bold
+			letter-spacing: 2px
+			position: relative
+			font-size: 30px
+			margin-top: 30px
+			margin-left: 270px
+			.accent_dot
+				color: $accent
+			span
+				&::after
+					display: none
+			&::after
+				content: ''
+				position: absolute
+				width: 30px
+				height: 4px
+				transform: rotate(90deg)
+				background-color: $accent
+				top: 90px
+				left: 4px
+	
+	.s_furniture
+		padding-top: 15%
+		&::after
+			font-size: 90px
+	.furniture_wrap
+		margin-top: 0
+		padding-left: 80px
+		h2
+			font-size: 40px
+		p
+			font-size: 14px
+
+	.img_wrap img
+		width: 100%
+
+	.furniture_wrap h2::after
+		left: -80px
+		width: 50px
+	.furniture_wrap p::after
+		left: -50px
+		width: 20px
+	.furniture_wrap .num_sect
+		font-size: 30px
+		margin-left: -50px
+	.furniture_wrap .num_sect::after
+		top: 90px
+		left: 2px
+		width: 30px
+
+
+
+	.info_icon, .change_lang
+		left: 45%	
+	.logo
+		left: 30%
+	.center_comp
+		h1
+			font-size: 75px
+		span
+			.fas
+				font-size: 13px
+				left: 3px
+		.text_scroll
+			font-size: 14px
+		a
+			padding: 10px 45px 10px 25px
+			font-size: 15px
+			.fas
+				font-size: 12px
+				right: 20px
+				top: 16px
+			&:hover
+				.fas
+					right: 10px
+	.header_flex
+		padding-top: 25%
+
+	.left_comp
+		.number
+			font-size: 40px
+			&::after
+				position: absolute
+				content: ''
+				width: 40px
+				height: 3px
+				background-color: $accent 
+				left: -60px
+				top: 30px
+		.dotted
+			left: 43px
+			> div
+				margin-bottom: 20px
+
+	.letter_right, .letter_down
+		font-size: 250px
+	.header_right p
+		font-size: 13px
+	
+// ≥768px
++media-breakpoint-down(sm)
+
+	.main_footer
+		.logo
+			font-size: 30px
+			letter-spacing: 3px
+			top: 0
+			left: 0
+			&::after
+				top: 23px
+				width: 40px
+				left: 35px
+		.pow, .copy
+			font-size: 15px
+			letter-spacing: 1px
+			text-transform: uppercase
+			font-weight: bold
+			margin-top: 15px
+			color: rgba(#fff, .2)
+
+	.s_about
+		&::after
+			content: 'about'
+			font-size: 140px
+
+	.about_wrap
+		padding-right: 0
+		padding-left: 0px
+		text-align: left
+		margin-top: 50px
+		position: relative
+		p
+			width: 60%
+
+	.s_video
+		.play_bg
+			font-size: 400px
+			top: 10%
+
+	.video_content
+		h2
+			font-size: 40px
+			&::after
+				display: none
+		p::after
+			display: none
+
+	.s_quality
+		text-align: center
+		padding: 8% 0
+		.item:first-child
+			margin-top: 0px
+		.item
+			margin-bottom: 20px
+	
+	.s_furniture
+		padding-top: 25%
+		&::after
+			font-size: 90px
+	.furniture_wrap
+		margin-top: 50px
+		padding-left: 80px
+		h2
+			font-size: 44px
+		p
+			font-size: 16px
+
+	.img_wrap img
+		width: 100%
+
+	.furniture_wrap h2::after
+		left: -80px
+		width: 50px
+	.furniture_wrap p::after
+		left: -50px
+		width: 20px
+	.furniture_wrap .num_sect
+		font-size: 30px
+		margin-left: -50px
+	.furniture_wrap .num_sect::after
+		top: 90px
+		left: 2px
+		width: 30px
+
+	.s_decor
+		&::after
+			font-size: 130px
+
+	.decor_wrap
+		&::after
+			display: none
+		margin-top: 50px
+		padding-left: 0
+		padding-right: 90px
+		h2
+			font-size: 44px
+		p
+			font-size: 16px
+
+	.img_wrap img
+		width: 100%
+
+	.decor_wrap h2::after
+		left: 450px
+		width: 50px
+	.decor_wrap p::after
+		left: 450px
+		width: 20px
+	.decor_wrap .num_sect
+		font-size: 30px
+		// margin-left: 0
+	.decor_wrap .num_sect::after
+		top: 90px
+		left: 105px
+		width: 30px
+
+
+	.left_comp
+		.number
+			font-size: 35px
+			&::after
+				position: absolute
+				content: ''
+				width: 30px
+				height: 3px
+				background-color: $accent 
+				left: -45px
+				top: 25px
+		h1
+			margin-bottom: 0
+		a
+			padding: 5px 40px 5px 20px
+			font-size: 13px
+		.dotted
+			left: 28px
+			> div
+				margin-bottom: 20px
+
+	.center_comp
+		h1
+			font-size: 60px
+
+	.header_flex
+		padding-top: 35%
+
+	.info_icon, .change_lang
+		left: 30%
+
+	.logo
+		left: 22%	
+
+	.header_right
+		margin-top: 300%
+
+// ≥576px
++media-breakpoint-down(xs)
+
+	.main_footer
+		.logo
+			font-size: 30px
+			letter-spacing: 8px
+			top: 0
+			left: 0
+			&::after
+				display: none
+				
+		.copy
+			margin-bottom: 12px
+
+
+	.s_about
+		&::after
+			font-size: 100px
+
+	.about_wrap
+		p
+			width: 80%
+
+	.s_video
+		.play_bg
+			font-size: 400px
+			top: 10%
+
+	.video_content
+		text-align: center
+		h2
+			font-size: 35px
+			line-height: 40px
+			&::after
+				display: none
+		p
+			width: 100%
+			&::after
+				display: none
+
+	.s_quality
+		padding: 25% 0 0
+		.sect_header
+			h2
+				font-size: 40px
+				line-height: 44px
+				&::after
+					top: 95px
+					left: 42%
+
+	.header_right
+		display: none
+	.s_furniture
+		padding-top: 30%
+		&::after
+			font-size: 80px
+			right: -55%
+			top: 20%
+	.furniture_wrap
+		margin-top: 50px
+		padding-left: 0px
+		h2
+			font-size: 44px
+		p
+			font-size: 16px
+
+
+	.furniture_wrap h2::after
+		display: none
+	.furniture_wrap p::after
+		display: none
+	.furniture_wrap .num_sect
+		font-size: 30px
+		margin-left: 0px
+	.furniture_wrap .num_sect::after
+		top: 80px
+		left: 2px
+		width: 30px
+
+	.s_decor
+		padding-top: 20%
+		&::after
+			top: 120px
+			font-size: 80px
+
+	.decor_wrap
+		margin-top: 50px
+		padding-left: 0px
+		padding-right: 0px
+		h2
+			font-size: 44px
+		p
+			font-size: 16px
+
+
+	.decor_wrap h2::after
+		display: none
+	.decor_wrap p::after
+		display: none
+	.decor_wrap .num_sect
+		font-size: 30px
+		margin-left: 90%
+		// margin-right: 26px
+	.decor_wrap .num_sect::after
+		left: 0
+		top: 80px
+		width: 30px
+
+	.info_icon, .change_lang
+		left: 55%
+		top: -28px
+	.info_icon
+		margin-right: 5px
+
+	.center_comp
+		text-align: center
+		margin-left: 0
+		h1
+			font-size: 60px
+			letter-spacing: 4px
+		img
+			left: 48%
+		.text_scroll
+			left: 43%
+		span
+			left: 48.5%
+			.fas
+				color: #fff
+				font-size: 18px
+
+	.header_flex
+		padding-top: 30%
+
+	.main_header
+		min-height: 500px
+
+	.mm-listview
+		> li
+			> a
+				font-size: 20px
+				padding: 
+					bottom: 30px
+
+	.top_line
+		.hide_menu_wrap
+			top: 3px
+			left: 1%
+
+
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+// ≤768px
++media-breakpoint-up(md)
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)
